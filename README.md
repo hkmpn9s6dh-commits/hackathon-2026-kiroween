@@ -10,7 +10,7 @@ Built for **Kiroween 2026 — Costume Contest**.
 - **Kiro write-up**: [KIRO.md](KIRO.md)
 - **Spec**: [docs/01-SPEC.md](docs/01-SPEC.md) · **UI**: [docs/07-UI.md](docs/07-UI.md) · **Rules brief**: [docs/00-BRIEF.md](docs/00-BRIEF.md)
 
-![The graveyard](proof/ui/02-graveyard.png)
+![The graveyard](submission/cover-1500x1000.png)
 
 ## What it does
 

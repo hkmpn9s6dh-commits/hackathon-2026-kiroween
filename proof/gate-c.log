@@ -1,0 +1,20 @@
+Cloning into 'clean-clone'...
+=== npm ci ===
+
+added 71 packages in 3s
+=== verify ===
+Necropolis verification (full)
+------------------------------------------------------
+node and npm available                         PASS
+typescript type check                          PASS
+autopsy unit checks                            PASS
+production build                               PASS
+MIT licence present                            PASS
+.kiro/steering committed                       PASS
+.kiro/specs present                            PASS
+at least two .kiro hooks                       PASS
+.kiro is not gitignored                        PASS
+secret scan                                    PASS
+js bundle < 400 kB (255131 bytes)              PASS
+------------------------------------------------------
+ALL CHECKS PASSED
