@@ -1,0 +1,12 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Green before you stop",
+      "description": "Refuse to end a session on a red repository: run the fast verification suite.",
+      "trigger": "Stop",
+      "action": { "type": "command", "command": "bash scripts/verify.sh --fast" },
+      "timeout": 240
+    }
+  ]
+}

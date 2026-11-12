@@ -1,0 +1,13 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Verify after TypeScript edits",
+      "description": "Type-check, unit-check and hygiene-check whenever the agent saves a TS/TSX file.",
+      "trigger": "PostFileSave",
+      "matcher": "\.(ts|tsx)$",
+      "action": { "type": "command", "command": "bash scripts/verify.sh --fast" },
+      "timeout": 180
+    }
+  ]
+}
