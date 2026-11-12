@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Necropolis — end card</title>
+    <style>
+      @font-face {
+        font-family: 'Cormorant Garamond';
+        src: url('./fonts/cormorant-garamond-latin.woff2') format('woff2');
+        font-weight: 500 700;
+      }
+      @font-face {
+        font-family: 'Plus Jakarta Sans';
+        src: url('./fonts/plus-jakarta-sans-latin.woff2') format('woff2');
+        font-weight: 400 800;
+      }
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: radial-gradient(60% 60% at 50% 40%, #0b1220 0%, #05070d 70%);
+        color: #e8e2d2;
+        font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+        display: grid;
+        place-items: center;
+      }
+      .card {
+        text-align: center;
+        padding: 48px;
+      }
+      .eyebrow {
+        font-size: 13px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: #8c887c;
+      }
+      h1 {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-weight: 600;
+        font-size: 110px;
+        letter-spacing: 0.04em;
+        margin: 18px 0 8px;
+      }
+      p {
+        font-size: 24px;
+        color: #b9b3a4;
+        margin: 0 0 28px;
+      }
+      .url {
+        font-size: 20px;
+        color: #e8a33d;
+        letter-spacing: 0.02em;
+      }
+      .dot {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #e8a33d;
+        margin: 0 10px 2px;
+      }
+      .foot {
+        margin-top: 40px;
+        font-size: 13px;
+        color: #6f6b61;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="eyebrow">Kiroween 2026 · Costume Contest</div>
+      <h1>NECROPOLIS</h1>
+      <p>A graveyard for your dead side projects.</p>
+      <div class="url">hkmpn9s6dh-commits.github.io/hackathon-2026-kiroween</div>
+      <div class="foot"><span class="dot"></span>Built with Kiro<span class="dot"></span></div>
+    </div>
+  </body>
+</html>
