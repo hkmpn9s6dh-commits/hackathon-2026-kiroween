@@ -1,4 +1,4 @@
-# Gate D — blind ranking, round 1
+# Gate D — blind ranking, round 1（INVALID，仅留档）
 
 Date: 2026-11-12. Packet: `packet/A–G.png` (one entrant, six outside references), key in `KEY.md`.
 
@@ -19,7 +19,7 @@ Ranking: **B > A > C > G > E > D > F**
 
 > 第 1 名比第 2 名强在：B 把主题做成产品本身（墓碑＝死掉的项目），A 只是漂亮的通用官网。
 
-## Judge 2 — GPT-5.6-sol (different family, did not build it)
+## Judge 2 — ATTEMPTED GPT-5.6-sol — **actually DeepSeek V4.1 Flash (fallback), same family as the builder. This result does not count.**
 
 Ranking: **B > A > G > E > C > F > D**
 
@@ -33,11 +33,9 @@ Ranking: **B > A > G > E > C > F > D**
 
 > 第 1 名比第 2 名强在：B 的主题直接融进内容里（墓碑就是项目），A 只是干净好看，少了这层故事。
 
-## Verdict
+## Verdict（作废）
 
-Both judges put **B first, above all six references**. The gate requires "above at least three past winners" — passed by both, with room to spare.
-
-The two judges agree on the top three in substance (B, A, G in some order) and on the bottom (D, F), which suggests the ranking is not noise.
+**This round is not gate evidence.** The second call requested `gpt-5.6-sol`, but the subagent transcript records `"model":"deepseek-v4.1-flash"` — the request silently fell back to the builder's own family. Only Judge 1 (GLM) is a genuine outside family. Round 2 is re-run through Multica agents on online runtimes.
 
 ## Notes for round 2 (not required now)
 

@@ -73,9 +73,11 @@ Packet: `proof/rank/packet/A–G.png` (one is ours, six are external references)
 
 Judges: two models of different families, neither involved in the build.
 
-| Judge | Ranking | Our entry |
-|---|---|---|
-| GLM-5.3-Flash | B > A > C > G > E > D > F | **1st of 7** |
-| GPT-5.6-sol | B > A > G > E > C > F > D | **1st of 7** |
+**Round 1 is invalid and is kept only as a record.** The GLM call was genuine (`providerData.model = glm-5.3-flash`); the second call requested `gpt-5.6-sol` but the transcript records `deepseek-v4.1-flash` — a silent fallback to the builder's own family. One family cannot count as two judges.
 
-Pass condition: our image (`B`) must be ranked above at least three references by both judges. **Passed** — both put it above all six. Full quotes: `proof/rank/RESULTS.md`.
+| Judge | Requested | Actually used | Counts? |
+|---|---|---|---|
+| GLM-5.3-Flash | `custom-local:BC-GLM-5.3-Flash` | `glm-5.3-flash` | yes |
+| “GPT-5.6-sol” | `gpt-5.6-sol` | `deepseek-v4.1-flash` (fallback) | **no** |
+
+Round 2 is dispatched through Multica agents on online runtimes (Seoul), following the AME-1145 pattern: GLM (`❶🐂【牛来|OMP】`) and gpt-6.1-sol (`❶🛰【天佬|OMP】`). Gate D stays **open** until both report.

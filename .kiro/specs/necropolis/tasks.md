@@ -54,7 +54,7 @@ Status as of 2026-11-12. `[x]` done, `[~]` in progress, `[ ]` not started.
 - [x] T7.2 GitHub Pages deployment
 - [x] T7.3 `scripts/verify.sh --fast` green
 - [x] T7.4 Gate C proof: clean clone, README only
-- [x] T7.5 Gate D blind ranking
+- [ ] T7.5 Gate D blind ranking（round 1 作废；round 2 用平台在线评委重跑）
 - [x] T7.6 Demo video ≤ 3 min
 - [x] T7.7 Cover image 1500×1000
 - [ ] T7.8 Devpost submission
