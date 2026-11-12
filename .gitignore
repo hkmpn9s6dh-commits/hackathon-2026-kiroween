@@ -1,0 +1,4 @@
+node_modules/
+dist/
+.deploy/
+proof/ui/*.png

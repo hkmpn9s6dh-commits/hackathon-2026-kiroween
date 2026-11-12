@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/autopsypanel.tsx","./src/components/gate.tsx","./src/components/obituarydialog.tsx","./src/components/stage.tsx","./src/lib/demo.ts","./src/lib/github.ts","./src/lib/obituary.ts","./src/lib/types.ts","./src/lib/vitality.ts","./src/scene/graveyard.ts"],"version":"5.9.3"}

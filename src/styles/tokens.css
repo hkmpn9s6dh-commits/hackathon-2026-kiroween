@@ -1,0 +1,104 @@
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/fonts/cormorant-garamond-latin.woff2') format('woff2');
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2');
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --ink-0: #05070d;
+  --ink-1: #0a0e15;
+  --ink-2: #111722;
+  --ink-3: #182130;
+  --bone: #e8e2d2;
+  --bone-dim: #b9b3a4;
+  --bone-faint: #8c887c;
+  --ember: #e8a33d;
+  --ember-soft: rgba(232, 163, 61, 0.16);
+  --moss: #7f9a72;
+  --blood: #a8443c;
+  --line: rgba(232, 226, 210, 0.14);
+  --line-strong: rgba(232, 226, 210, 0.28);
+
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-ui: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --step-0: 16px;
+  --step-1: 18px;
+  --step-2: 22px;
+  --step-3: 28px;
+  --step-4: 40px;
+  --step-5: 64px;
+
+  --radius: 4px;
+  --panel-w: 432px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ink-0);
+  color: var(--bone);
+  font-family: var(--font-ui);
+  font-size: var(--step-0);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+input {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+a {
+  color: var(--ember);
+}
+
+::selection {
+  background: rgba(232, 163, 61, 0.28);
+  color: var(--bone);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
