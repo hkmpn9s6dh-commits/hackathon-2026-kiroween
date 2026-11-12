@@ -50,6 +50,8 @@ export function Stage({ repos, handle, note, onSelect, onLeave, selectedName, pr
     sceneRef.current?.select(selectedName)
   }, [selectedName])
 
+  const isEmpty = repos.length === 0 && !preview
+
   return (
     <div className={preview ? 'stage stage-preview' : 'stage'}>
       <canvas ref={canvasRef} aria-label="A graveyard of abandoned repositories. The same graves are listed as buttons after this canvas." />
@@ -61,7 +63,7 @@ export function Stage({ repos, handle, note, onSelect, onLeave, selectedName, pr
           <span className="sub">a graveyard for dead side projects</span>
         </div>
         <div className="hud-right">
-          {!selectedName && (
+          {!selectedName && !isEmpty && (
             <span className="chip">
               walking <strong>{handle}</strong> · {repos.length} graves
             </span>
@@ -73,30 +75,47 @@ export function Stage({ repos, handle, note, onSelect, onLeave, selectedName, pr
       </div>
       )}
 
-      {!preview && (
-      <div className="legend" aria-hidden="true">
-        {LEGEND.map((l) => (
-          <div className="row" key={l.label}>
-            <span className="swatch" style={{ background: l.color }} />
-            {l.label}
-          </div>
-        ))}
-      </div>
-      )}
-
-      {!preview && hovered && (
-        <div className="hover-card">
-          <div className="name">{hovered.name}</div>
-          <div className="meta">
-            {classify(hovered) === 'alive' ? 'still breathing' : 'last sign of life'} ·{' '}
-            {new Date(hovered.pushedAt).toLocaleDateString('en-GB', { year: 'numeric', month: 'short' })}
+      {isEmpty ? (
+        <div className="empty-yard">
+          <div className="empty-card">
+            <div className="empty-title">No graves for <strong>{handle}</strong></div>
+            <p className="empty-text">
+              This GitHub account has no public repositories that aren't forks.
+              The graveyard is quiet.
+            </p>
+            <button className="btn btn-primary" onClick={onLeave}>
+              Return to the gate
+            </button>
           </div>
         </div>
+      ) : (
+        <>
+          {!preview && (
+          <div className="legend" aria-hidden="true">
+            {LEGEND.map((l) => (
+              <div className="row" key={l.label}>
+                <span className="swatch" style={{ background: l.color }} />
+                {l.label}
+              </div>
+            ))}
+          </div>
+          )}
+
+          {!preview && hovered && (
+            <div className="hover-card">
+              <div className="name">{hovered.name}</div>
+              <div className="meta">
+                {classify(hovered) === 'alive' ? 'still breathing' : 'last sign of life'} ·{' '}
+                {new Date(hovered.pushedAt).toLocaleDateString('en-GB', { year: 'numeric', month: 'short' })}
+              </div>
+            </div>
+          )}
+
+          {!preview && <div className="hint">Click a grave to read its autopsy</div>}
+
+          {!preview && note && <div className="demo-note">{note}</div>}
+        </>
       )}
-
-      {!preview && <div className="hint">Click a grave to read its autopsy</div>}
-
-      {!preview && note && <div className="demo-note">{note}</div>}
     </div>
   )
 }

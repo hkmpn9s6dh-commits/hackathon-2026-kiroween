@@ -11,6 +11,7 @@ type Props = {
 
 export function ObituaryDialog({ repo, autopsy, handle, onClose }: Props) {
   const [url, setUrl] = useState<string | null>(null)
+  const [copied, setCopied] = useState(false)
 
   useEffect(() => {
     let alive = true
@@ -40,6 +41,31 @@ export function ObituaryDialog({ repo, autopsy, handle, onClose }: Props) {
     return () => window.removeEventListener('keydown', onKey)
   }, [onClose])
 
+  const handleCopyCaption = async () => {
+    const liveUrl = window.location.origin || 'https://your-username.github.io/necropolis'
+    const caption = `${repo.name}: ${autopsy.epitaph} — Walk the graveyard at ${liveUrl}`
+    
+    try {
+      await navigator.clipboard.writeText(caption)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      // Fallback for older browsers or insecure contexts
+      try {
+        const textArea = document.createElement('textarea')
+        textArea.value = caption
+        document.body.appendChild(textArea)
+        textArea.select()
+        document.execCommand('copy')
+        document.body.removeChild(textArea)
+        setCopied(true)
+        setTimeout(() => setCopied(false), 2000)
+      } catch (fallbackErr) {
+        console.error('Failed to copy text:', fallbackErr)
+      }
+    }
+  }
+
   return (
     <div className="modal" role="dialog" aria-modal="true" aria-label={`Obituary for ${repo.name}`}>
       <div className="modal-card">
@@ -58,9 +84,18 @@ export function ObituaryDialog({ repo, autopsy, handle, onClose }: Props) {
         )}
         <div className="modal-actions">
           {url && (
-            <a className="btn btn-primary" href={url} download={`obituary-${repo.name}.png`}>
-              Download the card
-            </a>
+            <>
+              <a className="btn btn-primary" href={url} download={`obituary-${repo.name}.png`}>
+                Download the card
+              </a>
+              <button 
+                className="btn btn-secondary" 
+                onClick={handleCopyCaption}
+                disabled={copied}
+              >
+                {copied ? 'Copied' : 'Copy caption'}
+              </button>
+            </>
           )}
           <button className="btn btn-ghost" onClick={onClose}>
             Back to the graveyard
