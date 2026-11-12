@@ -1,0 +1,66 @@
+{
+  "url": "https://hkmpn9s6dh-commits.github.io/hackathon-2026-kiroween/",
+  "at": "2026-11-12T08:13:57.009Z",
+  "results": [
+    {
+      "name": "AC-12 page responds 200",
+      "pass": true,
+      "detail": "status 200"
+    },
+    {
+      "name": "AC-3 title contains Necropolis",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "AC-3 handle input present",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "AC-3 demo button present",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "AC-4 demo renders a canvas",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "AC-4 graves rendered",
+      "pass": true,
+      "detail": "14 graves"
+    },
+    {
+      "name": "AC-5 autopsy opens",
+      "pass": true,
+      "detail": "605 chars"
+    },
+    {
+      "name": "AC-5 has revival odds",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "AC-5 has three plan steps",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "AC-6 Escape closes the panel",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "AC-10 only the site host is contacted in demo mode",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "AC-12 no console errors",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}
