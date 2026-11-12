@@ -81,7 +81,7 @@ export function App() {
       {!result && <Gate onSubmit={enter} onDemo={enterDemo} loading={loading} error={error} />}
 
       {result && (
-        <ul className="sr-only" aria-label="Graves">
+        <ul className="sr-only grave-index" aria-label="Graves">
           {result.repos.map((repo) => (
             <li key={repo.id}>
               <button onClick={() => setSelected(repo)}>{repo.name}</button>

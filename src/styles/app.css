@@ -764,3 +764,48 @@
   opacity: 0.6;
   cursor: default;
 }
+
+/* Keyboard users: the visually hidden grave list becomes a visible index
+   as soon as anything inside it receives focus. */
+.grave-index:focus-within {
+  position: fixed;
+  left: 24px;
+  top: 104px;
+  bottom: 24px;
+  width: 300px;
+  height: auto;
+  margin: 0;
+  padding: 12px;
+  clip: auto;
+  overflow-y: auto;
+  white-space: normal;
+  background: rgba(8, 11, 17, 0.96);
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+  z-index: 30;
+  list-style: none;
+}
+
+.grave-index li + li {
+  margin-top: 2px;
+}
+
+.grave-index button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  color: var(--bone-dim);
+}
+
+.grave-index button:hover,
+.grave-index button:focus,
+.grave-index button:focus-visible {
+  background: rgba(232, 163, 51, 0.14);
+  color: var(--bone);
+  outline: 2px solid var(--ember);
+  outline-offset: -2px;
+}

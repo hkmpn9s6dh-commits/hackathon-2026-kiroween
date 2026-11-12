@@ -1,0 +1,25 @@
+{
+  "at": "2026-11-12T09:04:00.782Z",
+  "results": [
+    {
+      "name": "index becomes visible on focus",
+      "pass": true,
+      "detail": "300×772"
+    },
+    {
+      "name": "focus lands on a grave button",
+      "pass": true,
+      "detail": "BUTTON"
+    },
+    {
+      "name": "Enter opens the autopsy",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Escape closes the autopsy",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}
