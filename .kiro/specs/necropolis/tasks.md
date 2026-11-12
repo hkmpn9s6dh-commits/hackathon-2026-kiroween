@@ -45,8 +45,8 @@ Status as of 2026-11-12. `[x]` done, `[~]` in progress, `[ ]` not started.
 - [x] T6.1 Accessible grave list + focus ring
 - [x] T6.2 Reduced-motion mode
 - [x] T6.3 Mobile bottom sheet (needs a 390×844 screenshot check)
-- [ ] T6.4 Contrast audit (body copy ≥ 4.5:1)
-- [ ] T6.5 Keyboard-only walkthrough recorded
+- [x] T6.4 Contrast audit (body copy ≥ 4.5:1)
+- [x] T6.5 Keyboard-only walkthrough recorded
 
 ## T7 — Ship
 
@@ -54,7 +54,7 @@ Status as of 2026-11-12. `[x]` done, `[~]` in progress, `[ ]` not started.
 - [x] T7.2 GitHub Pages deployment
 - [x] T7.3 `scripts/verify.sh --fast` green
 - [x] T7.4 Gate C proof: clean clone, README only
-- [ ] T7.5 Gate D blind ranking
+- [x] T7.5 Gate D blind ranking
 - [x] T7.6 Demo video ≤ 3 min
 - [x] T7.7 Cover image 1500×1000
 - [ ] T7.8 Devpost submission

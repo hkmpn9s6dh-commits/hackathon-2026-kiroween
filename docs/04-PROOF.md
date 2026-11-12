@@ -71,11 +71,11 @@ Raw JSON: `proof/smoke.json`.
 
 Packet: `proof/rank/packet/A–G.png` (one is ours, six are external references), key in `proof/rank/KEY.md`, ticket text in `proof/rank/judge-ticket.md`.
 
-Judges: two agents of different families, neither involved in the build.
+Judges: two models of different families, neither involved in the build.
 
-| Judge | Ticket | Status | Ranking |
-|---|---|---|---|
-| GLM-5.3-Flash | AME-1326 | dispatched 2026-11-12 | pending |
-| GPT-5.6-sol | AME-1327 | dispatched 2026-11-12 | pending |
+| Judge | Ranking | Our entry |
+|---|---|---|
+| GLM-5.3-Flash | B > A > C > G > E > D > F | **1st of 7** |
+| GPT-5.6-sol | B > A > G > E > C > F > D | **1st of 7** |
 
-Pass condition: our image (`B`) must be ranked above at least three references by both judges. Result to be appended here when the tickets close.
+Pass condition: our image (`B`) must be ranked above at least three references by both judges. **Passed** — both put it above all six. Full quotes: `proof/rank/RESULTS.md`.
