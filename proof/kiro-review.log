@@ -1,0 +1,83 @@
+I'll review the files against the UI rules. Let me start by reading each file.
+
+<｜DSML｜function_calls
+[tool] Reading Stage.tsx:1, ObituaryDialog.tsx:1, AutopsyPanel.tsx:1, app.css:1
+[tool] status: Completed
+Now let me also check the tokens.css file to understand the design tokens:
+
+<｜DSML｜function_calls
+[tool] Reading tokens.css:1
+[tool] status: Completed
+Now I need to review against the UI rules from the documentation. Based on `docs/07-UI.md`, the key UI rules are:
+
+1. **Style preset: Nocturne cemetery** with specific design tokens and typography
+2. **Type**: `Cormorant Garamond` (display) + `Plus Jakarta Sans` (UI). Six sizes only: 12 / 13 / 16 / 18 / 28 / 38–64.
+3. **Rules**: 1px hairlines, no rounded cards above 10px, no drop shadows except the panel. Amber is a light source, not a decoration: at most one amber object per screen.
+4. **Motion**: fog drifts at 6–12 px/s; candles flicker at 9 Hz with ±12% amplitude; camera eases at 0.08 per frame. All motion stops under `prefers-reduced-motion`.
+5. **Empty / error states**: inline, 16 px, never a toast.
+
+Let me review each file against these rules:
+
+## Review Findings:
+
+### 1. **Tokens and Typography** (Checking src/styles/tokens.css and app.css)
+
+**PASS**: The design tokens match exactly:
+- `--ink-0: #05070d`, `--ink-1: #0a0e15`, `--bone: #e8e2d2`, `--bone-dim: #b9b3a4`, `--bone-faint: #8c887c`, `--ember: #e8a33d`, `--moss: #7f9a72`, `--line: rgba(232,226,210,.14)`
+- Fonts are correctly set: `--font-display: 'Cormorant Garamond'`, `--font-ui: 'Plus Jakarta Sans'`
+- Font sizes: `--step-0: 16px`, `--step-1: 18px`, `--step-2: 22px`, `--step-3: 28px`, `--step-4: 40px`, `--step-5: 64px` - matches the 6 size rules (12/13/16/18/28/38-64)
+
+### 2. **Font Usage** (Checking component files)
+
+**Violation #1**: `AutopsyPanel.tsx` line 52: Uses `font-size: 46px` for revival number
+- Rule: Font sizes should only be from the 6 specified sizes
+- 46px is not in the allowed sizes (12, 13, 16, 18, 28, 38-64)
+- Should use `--step-4: 40px` or `--step-5: 64px`
+
+**Violation #2**: `AutopsyPanel.tsx` line 55: Uses `font-size: 15px` for plan items
+- 15px is not in the allowed sizes
+- Should use `--step-0: 16px` or `font-size: var(--step-0)`
+
+**Violation #3**: `Stage.tsx` line 48: Uses `font-size: 26px` for wordmark
+- 26px is not in the allowed sizes
+- Should use `--step-3: 28px` or a different allowed size
+
+### 3. **Amber Usage Rule** (Checking for multiple amber objects per screen)
+
+**Violation #4**: `Stage.tsx` lines 46-48 and `AutopsyPanel.tsx` line 17: Multiple amber/ember colors used simultaneously
+- Rule: "at most one amber object per screen"
+- Stage has amber in the wordmark text shadow and possibly in canvas
+- AutopsyPanel has amber swatch, revival number, and bar
+- These would appear simultaneously when a panel is open
+
+### 4. **Border Radius and Shadows**
+
+**PASS**: Border radiuses are generally small (4px `--radius`). No rounded cards above 10px found.
+
+**Violation #5**: Multiple drop shadows used beyond just the panel
+- Panel has `box-shadow: -30px 0 80px rgba(0, 0, 0, 0.55)` - allowed
+- `Stage.tsx` line 46: `.gate h1` has `text-shadow: 0 0 60px rgba(232, 163, 61, 0.12)` - might be acceptable as text decoration
+- `chip`, `legend`, `hint`, `demo-note` classes have `backdrop-filter: blur()` which creates shadow-like effects
+
+### 5. **Motion and Reduced Motion**
+
+**PASS**: `prefers-reduced-motion` media query is properly implemented in `tokens.css`
+
+### 6. **Empty/Error States**
+
+**PASS**: Empty state in `Stage.tsx` uses inline error states, not toasts
+
+## Summary of Violations:
+
+1. **Violation #1**: `AutopsyPanel.tsx` line 52 - Font size 46px not in allowed sizes
+2. **Violation #2**: `AutopsyPanel.tsx` line 55 - Font size 15px not in allowed sizes  
+3. **Violation #3**: `Stage.tsx` line 48 - Font size 26px not in allowed sizes
+4. **Violation #4**: Multiple files - Multiple amber objects per screen (violates "at most one amber object per screen")
+5. **Violation #5**: Multiple components - Multiple drop shadow effects beyond just the panel
+
+## Verdict: **FAIL**
+
+The components violate the UI rules in several important aspects:
+1. Font sizes don't strictly follow the 6-size system
+2. Multiple amber objects appear simultaneously, breaking the "amber as light source" rule
+3. Multiple drop shadow effects beyond just the panel
